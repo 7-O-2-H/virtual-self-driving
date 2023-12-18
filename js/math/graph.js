@@ -3,7 +3,11 @@ class Graph {
     this.points = points;
     this.segments = segments;
   }
-  
+
+  addPoint(point) {
+    this.points.push(point);
+  }
+   
   draw(ctx) {
     for (const seg of this.segments) {
       seg.draw(ctx);
