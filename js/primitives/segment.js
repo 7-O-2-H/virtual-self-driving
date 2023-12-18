@@ -5,12 +5,11 @@ class Segment {
   }
 
   draw(ctx, width = 2, color = "black") {
-    const rad = size / 2;
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.strokeStyle = color;
     ctx.moveTo(this.p1.x, this.p1.y);
-    ctx.moveTo(this.p2.x, this.p2.y);
+    ctx.lineTo(this.p2.x, this.p2.y);
     ctx.stroke();
   }
 }
