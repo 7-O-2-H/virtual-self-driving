@@ -20,6 +20,11 @@ class Graph {
     return false;
   }
 
+  removePoint(point) {
+    this.points.splice(this.points.indexOf(point), 1);
+  }
+   
+
   addSegment(seg) {
     this.segments.push(seg);
   }
