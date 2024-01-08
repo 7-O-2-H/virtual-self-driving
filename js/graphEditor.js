@@ -16,7 +16,7 @@ class GraphEditor {
       const mouse = new Point(e.offsetX, e.offsetY);
       if(e.button === 2) { // rigth click
         if (this.hovered) {
-          this.graph.removePoint(this.hovered);
+          this.#removePoint(this.hovered);
         }
       }
       if (e.button === 0) {
@@ -34,7 +34,13 @@ class GraphEditor {
     });
     this.canvas.addEventListener("contextmenu", (e) => e.preventDefault());
   }
-  
+
+  #removePoint(point) {
+    this.graph.removePoint(point);
+    this.hovered = null;
+    this.selected = null;
+  }
+
   display() {
     this.graph.draw(this.ctx);
     if (this.hovered) {
