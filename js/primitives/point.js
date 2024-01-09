@@ -5,7 +5,7 @@ class Point {
   }
 
   equals(point) {
-    return this.x == point.x && this.y == point.y;
+    return this.x === point.x && this.y === point.y;
   }
   draw(ctx, { size = 18, color = "black", outline = false, fill = false } = {}) {
     const rad = size / 2;

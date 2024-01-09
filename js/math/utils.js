@@ -1,4 +1,4 @@
-function getNearestPoint(loc, points, threshold = Number.MAX_SAFE_INTEGER) {
+const getNearestPoint = function(loc, points, threshold = Number.MAX_SAFE_INTEGER) {
   let minDist = Number.MAX_SAFE_INTEGER;
   let nearest = null;
   for (const point of points) {
@@ -9,8 +9,8 @@ function getNearestPoint(loc, points, threshold = Number.MAX_SAFE_INTEGER) {
     }
   }
   return nearest;
-}
+};
 
-function distance(p1, p2) {
+const distance = function(p1, p2) {
   return Math.hypot(p1.x - p2.x, p1.y - p2.y);
-}
+};
