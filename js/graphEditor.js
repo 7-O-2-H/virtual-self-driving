@@ -22,6 +22,9 @@ class GraphEditor {
       }
       if (e.button === 0) {
         if (this.hovered) {
+          if (this.selected) {
+            this.graph.tryAddSegment(new Segment(this.selected, this.hovered));
+          }
           this.selected = this.hovered;
           this.dragging = true;
           return;
