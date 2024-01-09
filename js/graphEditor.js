@@ -24,18 +24,12 @@ class GraphEditor {
       }
       if (e.button === 0) {
         if (this.hovered) {
-          if (this.selected) {
-            this.graph.tryAddSegment(new Segment(this.selected, this.hovered));
-          }
-          this.selected = this.hovered;
+          this.#select(this.hovered);
           this.dragging = true;
           return;
         }
         this.graph.addPoint(mouse);
-        if (this.selected) {
-          this.graph.tryAddSegment(new Segment(this.selected, mouse));
-        }
-        this.selected = mouse;
+        this.#select(mouse);
         this.hovered = mouse;
       }
     });
@@ -50,6 +44,13 @@ class GraphEditor {
     this.canvas.addEventListener("contextmenu", (e) => e.preventDefault());
     this.canvas.addEventListener("mouseup", () => this.dragging = false);
 
+  }
+
+  #select(point) {
+    if (this.selected) {
+      this.graph.tryAddSegment(new Segment(this.selected, point));
+    }
+    this.selected = point; 
   }
 
   #removePoint(point) {
