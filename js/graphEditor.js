@@ -17,10 +17,10 @@ class GraphEditor {
     this.canvas.addEventListener("mousedown", (e) => {
       const mouse = new Point(e.offsetX, e.offsetY);
       if(e.button === 2) { // rigth click
-        if (this.hovered) {
-          this.#removePoint(this.hovered);
-        } else {
+        if (this.selected) {
           this.selected = null;
+        } else if (this.hovered) {
+          this.#removePoint(this.hovered);
         }
       }
       if (e.button === 0) {
