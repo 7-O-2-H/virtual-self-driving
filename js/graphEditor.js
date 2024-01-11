@@ -16,23 +16,6 @@ class GraphEditor {
   #addEventListeners() {
     this.canvas.addEventListener("mousedown", (e) => {
       const mouse = new Point(e.offsetX, e.offsetY);
-      if(e.button === 2) { // rigth click
-        if (this.selected) {
-          this.selected = null;
-           } else if (this.hovered) {
-          this.#removePoint(this.hovered);
-        }
-      }
-      if (e.button === 0) {
-        if (this.hovered) {
-          this.#select(this.hovered);
-          this.dragging = true;
-          return;
-        }
-        this.graph.addPoint(this.mouse);
-        this.#select(this.mouse);
-        this.hovered = this.mouse;
-      }
     });
     this.canvas.addEventListener("mousemove", (e) => {
       this.mouse = new Point(e.offsetX, e.offsetY);
@@ -47,6 +30,25 @@ class GraphEditor {
 
   }
 
+  #handleMouseDown(e) {
+    if(e.button === 2) { // rigth click
+      if (this.selected) {
+        this.selected = null;
+         } else if (this.hovered) {
+        this.#removePoint(this.hovered);
+      }
+    }
+    if (e.button === 0) {
+      if (this.hovered) {
+        this.#select(this.hovered);
+        this.dragging = true;
+        return;
+      }
+      this.graph.addPoint(this.mouse);
+      this.#select(this.mouse);
+      this.hovered = this.mouse;
+    }
+  }
   #select(point) {
     if (this.selected) {
       this.graph.tryAddSegment(new Segment(this.selected, point));
