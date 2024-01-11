@@ -19,7 +19,7 @@ class GraphEditor {
       if(e.button === 2) { // rigth click
         if (this.selected) {
           this.selected = null;
-        } else if (this.hovered) {
+           } else if (this.hovered) {
           this.#removePoint(this.hovered);
         }
       }
