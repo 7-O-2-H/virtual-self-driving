@@ -22,6 +22,9 @@ class Viewport {
       e.offsetY * this.zoom
     );
   }
+  getOffset() {
+    return add(this.offset, this.drag.offset);
+  }
 
   #addEventListeners() {
     this.canvas.addEventListener("mousewheel", this.#handleMouseWheel.bind(this));
