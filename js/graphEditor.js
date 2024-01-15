@@ -5,31 +5,31 @@ class GraphEditor {
 
     this.ctx = this.canvas.getContext("2d");
 
-    this.#addEventListeners();
-
     this.selected = null;
     this.hovered = null;
     this.dragging = false;
     this.mouse = null;
+
+    this.#addEventListeners();
   }
 
   #addEventListeners() {
-    this.canvas.addEventListener("mousedown", (e) => {
-      const mouse = new Point(e.offsetX, e.offsetY);
-    });
-    this.canvas.addEventListener("mousemove", (e) => {
-      this.mouse = new Point(e.offsetX, e.offsetY);
-      this.hovered = getNearestPoint(this.mouse, this.graph.points, 10);
-      if (this.dragging === true) {
-        this.selected.x = this.mouse.x;
-        this.selected.y = this.mouse.y;
-      }
-    });
+    this.canvas.addEventListener("mousedown", this.#handleMouseDown.bind(this));
+    this.canvas.addEventListener("mousemove", this.#handleMouseMove.bind(this));
     this.canvas.addEventListener("contextmenu", (e) => e.preventDefault());
     this.canvas.addEventListener("mouseup", () => this.dragging = false);
 
   }
 
+  #handleMouseMove(e) {
+    this.mouse = new Point(e.offsetX, e.offsetY);
+      this.hovered = getNearestPoint(this.mouse, this.graph.points, 10);
+      if (this.dragging === true) {
+        this.selected.x = this.mouse.x;
+        this.selected.y = this.mouse.y;
+      }
+  }
+  
   #handleMouseDown(e) {
     if(e.button === 2) { // rigth click
       if (this.selected) {
