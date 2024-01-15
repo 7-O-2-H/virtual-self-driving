@@ -37,7 +37,7 @@ class Viewport {
     }
   }
 
-  handleMouseMove(e) {
+  #handleMouseMove(e) {
     if (this.drag.active) {
       this.drag.end = this.getMouse(e);
       this.drag.offset = subtract(this.drag.end, this.drag.start);
