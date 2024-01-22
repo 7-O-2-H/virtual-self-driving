@@ -58,8 +58,8 @@ class Polygon {
   }
 
   containsSegment(seg) {
-    const midPoint = average(seg.p1, seg.p2);
-    return this.containsPoint(midPoint);
+    const midpoint = average(seg.p1, seg.p2);
+    return this.containsPoint(midpoint);
   }
 
   containsPoint(point) {
