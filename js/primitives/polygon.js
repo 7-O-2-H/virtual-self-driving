@@ -71,7 +71,7 @@ class Polygon {
           intersectionCount++;
         }
     }
-    return intersectionCount % 2 == 1;
+    return intersectionCount % 2 === 1;
   }
 
   drawSegments(ctx) {
