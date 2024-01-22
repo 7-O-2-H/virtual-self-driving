@@ -44,9 +44,9 @@
 
       function animate() {
         viewport.reset();
-        graphEditor.display();
         world.generate();
         world.draw(ctx);
+        graphEditor.display();
         requestAnimationFrame(animate);
       }
 
