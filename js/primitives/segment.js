@@ -9,7 +9,7 @@ class Segment {
   }
 
   directionVector() {
-    return normalize(subtract(this.p1, this.p2));
+    return normalize(subtract(this.p2, this.p1));
   }
 
   equals(seg) {

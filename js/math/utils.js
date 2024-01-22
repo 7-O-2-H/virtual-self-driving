@@ -37,7 +37,7 @@ function normalize(p) {
 
 function magnitude(p) {
   return Math.hypot(p.x, p.y);
-}
+};
 
 function translate(loc, angle, offset) {
   return new Point(
@@ -48,7 +48,7 @@ function translate(loc, angle, offset) {
 
 function angle(p) {
   return Math.atan2(p.y, p.x);
-}
+};
 
 function getIntersection(A, B, C, D) {
   const tTop = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x);
