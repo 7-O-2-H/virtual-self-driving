@@ -43,7 +43,18 @@ class World {
         )
       );
     }
-    return tempEnvelopes;
+
+    const guides = Polygon.union(tempEnvelopes.map((e) => e.poly));
+
+    for (let i = 0; i < guides.length; i++) {
+      const seg = guides[i];
+      if (seg.length() < this.buildingMinLength) {
+        guides.splice(i, 1); 
+        i--;
+      }
+    }
+
+    return guides;
   }
 
   draw(ctx) {
