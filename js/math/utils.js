@@ -14,6 +14,9 @@ const getNearestPoint = function(loc, points, threshold = Number.MAX_SAFE_INTEGE
 const distance = function(p1, p2) {
   return Math.hypot(p1.x - p2.x, p1.y - p2.y);
 };
+function average(p1, p2) {
+  return new Point((p1.x - p2.x) / 2, (p1.y - p2.y) / 2);
+}
 
 const add = function(p1, p2) {
   return new Point(p1.x + p2.x, p1.y + p2.y);
