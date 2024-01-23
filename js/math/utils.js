@@ -27,8 +27,8 @@ const subtract = function(p1, p2) {
   return new Point(p1.x - p2.x, p1.y - p2.y);
 };
 
-const scale = function(p, scalar) {
-  return new Point(p.x * scalar, p.y * scalar);
+const scale = function(p, scaler) {
+  return new Point(p.x * scaler, p.y * scaler);
 };
 
 function normalize(p) {
