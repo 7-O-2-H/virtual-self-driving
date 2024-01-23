@@ -58,7 +58,8 @@ class World {
         lerp(left, right, Math.random()),
         lerp(bottom, top, Math.random())
       );
-
+      
+      // check if tree is inside/near builing
       let keep = true;
       for (const poly of illegalPolys) {
         if (poly.containsPoint(p) || poly.distanceToPoint(p) < this.treeSize / 2) {
@@ -67,6 +68,7 @@ class World {
         }
       }
 
+      // check if trees are too close to other trees
       if (keep) {
         for (const tree of trees) {
           if (distance(tree, p) < this.treeSize) {
@@ -76,6 +78,7 @@ class World {
         }
       }
 
+      // check if trees are close to road map
       if (keep) {
         let closeToSomething = false;
         for (const poly of illegalPolys) {
@@ -86,7 +89,7 @@ class World {
         }
         keep = closeToSomething;
       }
-      
+
       if (keep) {
         trees.push(p);
         tryCount = 0;
@@ -148,7 +151,10 @@ class World {
     const eps = 0.001;
     for (let i = 0; i < bases.length - 1; i++) {
       for (let j = i + 1; j < bases.length; j++) {
-        if (bases[i].intersectsPoly(bases[j])) {
+        if (
+          bases[i].intersectsPoly(bases[j]) ||
+          bases[i].distanceToPoly(bases[j]) < this.spacing - eps
+        ) {
           bases.splice(j, 1);
           j--;
         }
