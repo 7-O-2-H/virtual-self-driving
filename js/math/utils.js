@@ -19,6 +19,10 @@ function average(p1, p2) {
   return new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
 };
 
+function dot(p1, p2) {
+  return p1.x * p2.x + p1.y * p2.y;
+};
+
 const add = function(p1, p2) {
   return new Point(p1.x + p2.x, p1.y + p2.y);
 };
@@ -73,10 +77,9 @@ function getIntersection(A, B, C, D) {
 
 function lerp(a, b, t) {
   return a + (b - a) * t;
-}
+};
 
-// if you're following along, this comes in a few minutes ;-)
 function getRandomColor() {
   const hue = 290 + Math.random() * 260;
   return "hsl(" + hue + ", 100%, 60%)";
-}
+};
