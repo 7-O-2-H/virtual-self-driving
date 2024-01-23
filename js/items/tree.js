@@ -5,7 +5,7 @@ class Tree {
   }
 
   draw(ctx) {
-    c//onst diff = subtract(this.center, viewPoint);
+    //const diff = subtract(this.center, viewPoint);
 
     this.center.draw(ctx, { size: this.size, color: "green" })
 
