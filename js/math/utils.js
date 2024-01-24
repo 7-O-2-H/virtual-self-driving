@@ -1,58 +1,58 @@
-const getNearestPoint = function(loc, points, threshold = Number.MAX_SAFE_INTEGER) {
+function getNearestPoint(loc, points, threshold = Number.MAX_SAFE_INTEGER) {
   let minDist = Number.MAX_SAFE_INTEGER;
   let nearest = null;
   for (const point of points) {
-    const dist = distance(point, loc);
-    if (dist < minDist && dist < threshold) {
-      minDist = dist;
-      nearest = point;
-    }
+     const dist = distance(point, loc);
+     if (dist < minDist && dist < threshold) {
+        minDist = dist;
+        nearest = point;
+     }
   }
   return nearest;
-};
+}
 
-const distance = function(p1, p2) {
+function distance(p1, p2) {
   return Math.hypot(p1.x - p2.x, p1.y - p2.y);
-};
+}
 
 function average(p1, p2) {
   return new Point((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
-};
+}
 
 function dot(p1, p2) {
   return p1.x * p2.x + p1.y * p2.y;
-};
+}
 
-const add = function(p1, p2) {
+function add(p1, p2) {
   return new Point(p1.x + p2.x, p1.y + p2.y);
-};
+}
 
-const subtract = function(p1, p2) {
+function subtract(p1, p2) {
   return new Point(p1.x - p2.x, p1.y - p2.y);
-};
+}
 
-const scale = function(p, scaler) {
+function scale(p, scaler) {
   return new Point(p.x * scaler, p.y * scaler);
-};
+}
 
 function normalize(p) {
   return scale(p, 1 / magnitude(p));
-};
+}
 
 function magnitude(p) {
   return Math.hypot(p.x, p.y);
-};
+}
 
 function translate(loc, angle, offset) {
   return new Point(
-    loc.x + Math.cos(angle) * offset, 
-    loc.y + Math.sin(angle) * offset
-  )
-};
+     loc.x + Math.cos(angle) * offset,
+     loc.y + Math.sin(angle) * offset
+  );
+}
 
 function angle(p) {
   return Math.atan2(p.y, p.x);
-};
+}
 
 function getIntersection(A, B, C, D) {
   const tTop = (D.x - C.x) * (A.y - C.y) - (D.y - C.y) * (A.x - C.x);
@@ -77,9 +77,9 @@ function getIntersection(A, B, C, D) {
 
 function lerp(a, b, t) {
   return a + (b - a) * t;
-};
+}
 
 function getRandomColor() {
   const hue = 290 + Math.random() * 260;
   return "hsl(" + hue + ", 100%, 60%)";
-};
+}
