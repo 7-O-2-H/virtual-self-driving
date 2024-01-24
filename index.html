@@ -51,7 +51,6 @@
           oldGraphHash = graph.hash();
         }
         const viewPoint = scale(viewport.getOffset(), -1);
-        console.log(viewPoint);
         world.draw(ctx, viewPoint);
         ctx.globalAlpha = 0.3;
         graphEditor.display();
