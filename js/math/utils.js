@@ -69,7 +69,7 @@ const getIntersection = function(A, B, C, D) {
         y: lerp(A.y, B.y, t),
         offset: t,
       };
-     }
+    }
   }
   return null;
 };
