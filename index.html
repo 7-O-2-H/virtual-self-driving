@@ -72,6 +72,17 @@
       function save() {
         localStorage.setItem("graph", JSON.stringify(graph));
       }
+
+      function setMode(mode) {
+        disableEditors();
+      }
+
+      function disableEditors() {
+        graphBtn.style.backgroundColor = "gray";
+        graphBtn.style.filter = "grayscale(100%)";
+        stopBtn.style.backgroundColor = "gray";
+        stopBtn.style.filter = "grayscale(100%)";
+      }
     </script>
   </body>
 </html>
