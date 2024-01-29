@@ -21,8 +21,9 @@
     </div>
 
     <script src="js/world.js"></script>
-    <script src="js/graphEditor.js"></script>
     <script src="js/viewport.js"></script>
+    <script src="js/editors/graphEditor.js"></script>
+    <script src="js/editors/stopEditor.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/utils.js"></script>
@@ -48,6 +49,7 @@
       
       const viewport = new Viewport(myCanvas);
       const graphEditor = new GraphEditor(viewport, graph);
+      const stopEditor = new StopEditor(viewport, world);
 
       let oldGraphHash = graph.hash();
 
@@ -87,6 +89,7 @@
           case "stop":
             stopBtn.style.backgroundColor = "white";
             stopBtn.style.filter = "";
+            stopEditor.enable();
             break;
         }
       }
@@ -97,6 +100,7 @@
         graphEditor.disable();
         stopBtn.style.backgroundColor = "gray";
         stopBtn.style.filter = "grayscale(100%)";
+        stopEditor.disable();
       }
     </script>
   </body>
