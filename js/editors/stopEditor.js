@@ -43,6 +43,10 @@ class StopEditor {
     }
   }
 
+  #handleMouseDown(e) {
+
+  }
+
   display() {
     if (this.intent) {
       this.intent.draw(this.ctx);
