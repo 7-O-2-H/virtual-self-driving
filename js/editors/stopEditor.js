@@ -10,7 +10,7 @@ class StopEditor {
     this.intent = null;
   }
 
-  enable() {
+enable() {
     this.#addEventListeners();
   }
   
