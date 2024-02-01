@@ -36,7 +36,7 @@
     <script>
       
       myCanvas.width = 1000;
-      myCanvas.height = 600;
+      myCanvas.height = 1000;
 
       const ctx = myCanvas.getContext("2d");
 
@@ -67,6 +67,7 @@
         world.draw(ctx, viewPoint);
         ctx.globalAlpha = 0.3;
         graphEditor.display();
+        stopEditor.display();
         requestAnimationFrame(animate);
       }
 
