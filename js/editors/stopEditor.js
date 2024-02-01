@@ -10,6 +10,10 @@ class StopEditor {
     this.intent = null;
   }
 
+  enable() {
+    this.#addEventListeners();
+  }
+  
   disable() {
     this.#removeEventListeners();
   }
@@ -37,7 +41,12 @@ class StopEditor {
       10 * this.viewport.zoom
     );
     if (seg) {
-      this.intent = seg;
+      const proj = seg.projectPoint(this.mouse);
+      if (proj.offset >= 0 && proj.offset <= 1) {
+        this.intent = proj.point;
+      } else {
+        this.intent = null;
+      }
     } else {
       this.intent = null;
     }

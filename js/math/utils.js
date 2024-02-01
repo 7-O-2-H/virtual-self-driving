@@ -11,7 +11,7 @@ const getNearestPoint = function(loc, points, threshold = Number.MAX_SAFE_INTEGE
   return nearest;
 };
 
-const getNearestSegment = function(loc, segments) {
+const getNearestSegment = function(loc, segments, threshold = Number.MAX_SAFE_INTEGER) {
   let minDist = Number.MAX_SAFE_INTEGER;
   let nearest = null;
   for (const seg of segments) {
