@@ -43,7 +43,7 @@ enable() {
     if (seg) {
       const proj = seg.projectPoint(this.mouse);
       if (proj.offset >= 0 && proj.offset <= 1) {
-        this.intent = new StopEditor(
+        this.intent = new Stop(
           proj.point,
           seg.directionVector(),
           world.roadWidth,
