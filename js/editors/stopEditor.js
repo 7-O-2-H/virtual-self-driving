@@ -37,7 +37,7 @@ enable() {
     this.mouse = this.viewport.getMouse(e, true);
     const seg = getNearestSegment(
       this.mouse, 
-      this.world.graph.segments,
+      this.world.laneGuides,
       10 * this.viewport.zoom
     );
     if (seg) {
@@ -46,7 +46,7 @@ enable() {
         this.intent = new Stop(
           proj.point,
           seg.directionVector(),
-          world.roadWidth,
+          world.roadWidth / 2,
           world.roadWidth / 2
         );
       } else {
