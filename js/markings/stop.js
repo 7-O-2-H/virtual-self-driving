@@ -22,7 +22,7 @@ class Stop {
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
-    ctx.font = this.height * 0.3 + "px Arial";
+    ctx.font = "bold " + this.height * 0.305 + "px Arial";
     ctx.fillText("STOP", 0, 0);
 
     ctx.restore();
