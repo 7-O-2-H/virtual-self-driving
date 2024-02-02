@@ -10,10 +10,12 @@ class Stop {
       translate(center, angle(directionVector), -height / 2),
     );
     this.poly = new Envelope(this.support, width, 0).poly;
+
+    this.border = this.poly.segments[2];
   }
 
   draw(ctx) {
-    this.poly.draw(ctx);
+    this.border.draw(ctx, { width: 5, color: "white" });
     ctx.save();
     ctx.translate(this.center.x, this.center.y);
     ctx.rotate(angle(this.directionVector) - Math.PI / 2);
