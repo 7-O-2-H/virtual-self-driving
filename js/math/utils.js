@@ -56,6 +56,10 @@ const magnitude = function(p) {
   return Math.hypot(p.x, p.y);
 };
 
+const perpendicular = function(p) {
+  return new Point(-p.y, p.x);
+};
+
 const translate = function(loc, angle, offset) {
   return new Point(
     loc.x + Math.cos(angle) * offset,
