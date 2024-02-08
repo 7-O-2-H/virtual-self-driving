@@ -58,6 +58,11 @@
       const graphEditor = new GraphEditor(viewport, graph);
       const stopEditor = new StopEditor(viewport, world);
       const crossingEditor = new CrossingEditor(viewport, world);
+      const tools = {
+        graph: { button: graphBtn, editor: graphEditor },
+        stop: { button: stopBtn, editor: stopEditor },
+        crossing: { button: crossingBtn, editor: crossingEditor }
+      };
 
       let oldGraphHash = graph.hash();
 
@@ -74,9 +79,9 @@
         const viewPoint = scale(viewport.getOffset(), -1);
         world.draw(ctx, viewPoint);
         ctx.globalAlpha = 0.3;
-        graphEditor.display();
-        stopEditor.display();
-        crossingEditor.display();
+        for (const tool of Object.values(tools)) {
+          tool.editor.display();
+        }
         requestAnimationFrame(animate);
       }
 
