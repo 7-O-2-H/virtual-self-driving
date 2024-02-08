@@ -22,6 +22,8 @@
       <button id="crossingBtn" onclick="setMode('crossing')">🚶</button>
       &nbsp;
       <button id="startBtn" onclick="setMode('start')">🚙</button> 
+      &nbsp;
+      <button id="targetBtn" onclick="setMode('target')">🎯</button>
     </div>
 
     <script src="js/world.js"></script>
@@ -29,12 +31,14 @@
     <script src="js/markings/marking.js"></script>
     <script src="js/markings/stop.js"></script>
     <script src="js/markings/start.js"></script>
+    <script src="js/markings/target.js"></script>
     <script src="js/markings/crossing.js"></script>
     <script src="js/editors/markingEditor.js"></script>
     <script src="js/editors/graphEditor.js"></script>
     <script src="js/editors/crossingEditor.js"></script>
     <script src="js/editors/stopEditor.js"></script>
     <script src="js/editors/startEditor.js"></script>
+    <script src="js/editors/targetEditor.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/utils.js"></script>
@@ -65,6 +69,7 @@
         stop: { button: stopBtn, editor: new StopEditor(viewport, world) },
         crossing: { button: crossingBtn, editor: new CrossingEditor(viewport, world) },
         start: { button: startBtn, editor: new StartEditor(viewport, world) },
+        target: { button: targetBtn, editor: new TargetEditor(viewport, world) }
       };
 
       let oldGraphHash = graph.hash();
