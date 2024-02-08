@@ -55,9 +55,7 @@
       const world = new World(graph);
       
       const viewport = new Viewport(myCanvas);
-      const graphEditor = new GraphEditor(viewport, graph);
-      const stopEditor = new StopEditor(viewport, world);
-      const crossingEditor = new CrossingEditor(viewport, world);
+  
       const tools = {
         graph: { button: graphBtn, editor: graphEditor },
         stop: { button: stopBtn, editor: stopEditor },
@@ -86,7 +84,7 @@
       }
 
       function dispose() {
-        graphEditor.dispose();
+        tools["graph"].editor.dispose();
         world.markings.length = 0;
       }
 
