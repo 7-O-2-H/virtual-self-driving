@@ -28,11 +28,13 @@
     <script src="js/viewport.js"></script>
     <script src="js/markings/marking.js"></script>
     <script src="js/markings/stop.js"></script>
+    <script src="js/markings/start.js"></script>
     <script src="js/markings/crossing.js"></script>
     <script src="js/editors/markingEditor.js"></script>
     <script src="js/editors/graphEditor.js"></script>
-    <script src="js/editors/stopEditor.js"></script>
     <script src="js/editors/crossingEditor.js"></script>
+    <script src="js/editors/stopEditor.js"></script>
+    <script src="js/editors/startEditor.js"></script>
     <script src="js/items/tree.js"></script>
     <script src="js/items/building.js"></script>
     <script src="js/math/utils.js"></script>
@@ -59,9 +61,10 @@
       const viewport = new Viewport(myCanvas);
   
       const tools = {
-        graph: { button: graphBtn, editor: graphEditor },
-        stop: { button: stopBtn, editor: stopEditor },
-        crossing: { button: crossingBtn, editor: crossingEditor }
+        graph: { button: graphBtn, editor: new GraphEditor(viewport, graph) },
+        stop: { button: stopBtn, editor: new StopEditor(viewport, world) },
+        crossing: { button: crossingBtn, editor: new CrossingEditor(viewport, world) },
+        //start: { button: startBtn, editor: new StartEditor(viewport, world) }
       };
 
       let oldGraphHash = graph.hash();
