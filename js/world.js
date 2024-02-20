@@ -26,6 +26,10 @@ class World {
     this.generate();
   }
 
+  static load(info) {
+    return new World(Graph.load(info.graph));
+  }
+
   generate() {
     this.envelopes.length = 0;
     for (const seg of this.graph.segments) {
