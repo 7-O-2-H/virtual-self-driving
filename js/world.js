@@ -27,7 +27,16 @@ class World {
   }
 
   static load(info) {
-    return new World(Graph.load(info.graph));
+    const world = new World(new Graph());
+    world.graph = Graph.load(info.graph);
+    world.roadWidth = info.roadWidth;
+    world.roadRoundness = info.roadRoundness;
+    world.buildingWidth = info.buildingWidth;
+    world.buildingMinLength = info.buildingMinLength;
+    world.spacing = info.spacing;
+    world.treeSize = info.treeSize;
+    world.envelopes = info.envelopes.map((e) => Envelope.load(e));
+    return world;
   }
 
   generate() {
