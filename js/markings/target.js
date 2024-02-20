@@ -8,4 +8,4 @@ class Target extends Marking {
      this.center.draw(ctx, { color: "white", size: 20 });
      this.center.draw(ctx, { color: "red", size: 10 });
   }
-}
+};
