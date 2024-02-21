@@ -120,6 +120,18 @@
       }
 
       function save() {
+        const element = document.createElement("a");
+        element.setAttribute(
+          "href",
+          "data:application/json;charset=utf-8," +
+            encodeURIComponent(JSON.stringify(world))
+        );
+
+        const fileName = "name.world";
+        element.setAttribute("download", fileName);
+
+        element.click();
+
         localStorage.setItem("world", JSON.stringify(world));
       }
 
