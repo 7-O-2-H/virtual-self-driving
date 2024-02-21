@@ -39,6 +39,7 @@ class World {
     world.roadBorders = info.roadBorders.map((b) => new Segment(b.p1, b.p2));
     world.buildings = info.buildings.map((e) => Building.load(e));
     world.trees = info.trees.map((t) => new Tree(t.center, info.treeSize));
+    world.laneGuides = info.laneGuides((g) => new Segment(g.p1, g.p2));
     return world;
   }
 
