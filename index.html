@@ -131,6 +131,9 @@
       }
 
       function save() {
+        world.zoom = viewport.zoom;
+        world.offset = viewport.offset;
+        
         const element = document.createElement("a");
         element.setAttribute(
           "href",
