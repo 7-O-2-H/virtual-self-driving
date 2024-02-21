@@ -16,6 +16,17 @@
         &nbsp;
      
         <button onclick="save()">💾</button>
+        &nbsp;
+
+        <label for="fileInput" class="file-input">
+          📁
+          <input
+            type="file"
+            id="fileInput"
+            accept=".world"
+            onChange="load(event)"
+          />
+        </label>
       </div>
         &nbsp;
       <div>
@@ -74,7 +85,7 @@
 
       const worldString = localStorage.getItem("world");
       const worldInfo = worldString ? JSON.parse(worldString) : null;
-      const world = worldInfo
+      let world = worldInfo
         ? World.load(worldInfo)
         : new World(new Graph());
 
@@ -88,9 +99,9 @@
         crossing: { button: crossingBtn, editor: new CrossingEditor(viewport, world) },
         start: { button: startBtn, editor: new StartEditor(viewport, world) },
         parking: { button: parkingBtn, editor: new ParkingEditor(viewport, world) },
-        yield: { button: yieldBtn, editor: new YieldEditor(viewport, world) },
+        light: { button: lightBtn, editor: new LightEditor(viewport, world) },
         target: { button: targetBtn, editor: new TargetEditor(viewport, world) },
-        light: { button: lightBtn, editor: new LightEditor(viewport, world) }
+        yield: { button: yieldBtn, editor: new YieldEditor(viewport, world) }
       };
 
       let oldGraphHash = graph.hash();
@@ -133,6 +144,26 @@
         element.click();
 
         localStorage.setItem("world", JSON.stringify(world));
+      }
+
+      function load(e) {
+        const file = e.target.files[0];
+
+        if (!file) {
+          alert("No file selected!");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.readAsText(file);
+
+        reader.onload = (e) => {
+          const fileContent = e.target.result;
+          const jsonData = JSON.parse(fileContent);
+          world = World.load(jsonData);
+          localStorage.setItem("world", JSON.stringify(world));
+          location.reload();
+        }
       }
 
       function setMode(mode) {
